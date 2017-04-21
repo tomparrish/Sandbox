@@ -37,13 +37,11 @@ def main_loop(range, guesses, number, guesses_taken):
         number = str(number)
         print ('Nope.  The number I was thinking of was ' + number)
         
-#def main():
-global range
-global guesses
-global number
-global guesses_taken
-range = get_range()
-guesses = get_guesses()
-number = get_number(range)
-guesses_taken = 0
-main_loop(range, guesses, number, guesses_taken)
+def main():
+    range = get_range()
+    guesses = get_guesses()
+    number = get_number(range)
+    guesses_taken = 0
+    main_loop(range, guesses, number, guesses_taken)
+
+main()
