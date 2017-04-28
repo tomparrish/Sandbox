@@ -1,11 +1,13 @@
 # Sandbox <br>
 This is just a place for me to keep small projects that I enjoying messing with.<br>
 <br>
-<b>azure_uswest.py</b> Pulls the 04.17.2017 xml file for azure address and prints the list of uswest addresses.<br>
-<b>guessnumber.py</b> Guess a number between 1 and x in y tries.<br>
-<b>hangman.py</b>  Pulls the Word of the Day from m-w.com and then plays hangman.  Kind of fun to start the day.<br>
-<b>hicard.py</b>  Plays a quick game of high card with a standard deck of cards<br>
-<b>magicEight.py</b> Magic eight ball.<br>
-<b>O365.py</b> Pulls the current list of IP addresses needed for O365 and compares to list currently on ASA.  Provides commands to update ASA with adds or removals.<br>
-<b>RPSLS.py</b>	Rock Paper Scissors Lizard Spock game as described by TBBT's Sheldon.<br>
-<b>Stock-price.py</b>	Presents data on a few stocks I'm interested in.  Very rough.<br>
+<ul>
+<li><b>azure_uswest.py</b> Pulls the 04.17.2017 xml file for azure address and prints the list of uswest addresses.<br></li>
+<li><b>guessnumber.py</b> Guess a number between 1 and x in y tries.<br></li>
+<li><b>hangman.py</b>  Pulls the Word of the Day from m-w.com and then plays hangman.  Kind of fun to start the day.<br></li>
+<li><b>hicard.py</b>  Plays a quick game of high card with a standard deck of cards<br></li>
+<li><b>magicEight.py</b> Magic eight ball.<br></li>
+<li><b>O365.py</b> Pulls the current list of IP addresses needed for O365 and compares to list currently on ASA.  Provides commands to update ASA with adds or removals.<br></li>
+<li><b>RPSLS.py</b>	Rock Paper Scissors Lizard Spock game as described by TBBT's Sheldon.<br></li>
+<li><b>Stock-price.py</b>	Presents data on a few stocks I'm interested in.  Very rough.<br></li>
+</ul>
