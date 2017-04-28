@@ -6,6 +6,6 @@ This is just a place for me to keep small projects that I enjoying messing with.
 <b>hangman.py</b>  Pulls the Word of the Day from m-w.com and then plays hangman.  Kind of fun to start the day.<br>
 <b>hicard.py</b>  Plays a quick game of high card with a standard deck of cards<br>
 <b>magicEight.py</b> Magic eight ball.<br>
-<b>O365.py</b> Pulls the current list of IP addresses needed for O365 and compares to list currently on ASA.  Provides commands to update ASA with adds or removals.
+<b>O365.py</b> Pulls the current list of IP addresses needed for O365 and compares to list currently on ASA.  Provides commands to update ASA with adds or removals.<br>
 <b>RPSLS.py</b>	Rock Paper Scissors Lizard Spock game as described by TBBT's Sheldon.<br>
 <b>Stock-price.py</b>	Presents data on a few stocks I'm interested in.  Very rough.<br>
