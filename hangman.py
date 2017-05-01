@@ -21,20 +21,20 @@ def intro_to_game():
 def play(word):
     guesses = ''
     turns = 10
-    word = str(word)
     while turns > 0:
         failed = 0
         for char in word:
             if char in guesses:
-                print (char),
+                print (char, end = ""),
             else:
-                print ("_"),
+                print ("_ ", end = ""),
                 failed += 1
+        print()
         if failed == 0:
             print ("You win!")
             break
-        print
-        guess = input("guess!")
+        print()
+        guess = input("guess! ")
         guess = guess.lower()
         guesses += guess
         if guess not in word:
@@ -43,10 +43,19 @@ def play(word):
                 print ("You have", + turns, 'more guesses')
                 if turns == 0:
                     print ("You lose")
+                    
+def endgame(word):
+    print ("say uncle if you would like to see the word")
+    answer=input()
+    if "uncle" in answer.lower():
+        print()
+        print("M-W's word of the day is " + word)
+        print()        
 
 def main():
     word = getword()
     intro_to_game()
     play(word)
+    endgame(word)
     
 main()
