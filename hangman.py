@@ -3,7 +3,6 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import time
 
-
 def getword():
     soup = BeautifulSoup(urlopen("https://www.merriam-webster.com/word-of-the-day"), "lxml")
     phrase = soup.title.string
@@ -30,6 +29,7 @@ def play(word):
                 print ("_ ", end = ""),
                 failed += 1
         print()
+        print ("Your guesses so far: " + guesses)
         if failed == 0:
             print ("You win!")
             break
@@ -37,25 +37,27 @@ def play(word):
         guess = input("guess! ")
         guess = guess.lower()
         guesses += guess
+        print()
         if guess not in word:
                 turns -= 1
                 print ("Wrong")
                 print ("You have", + turns, 'more guesses')
-                if turns == 0:
-                    print ("You lose")
+                print()
+    return turns
                     
-def endgame(word):
-    print ("say uncle if you would like to see the word")
-    answer=input()
-    if "uncle" in answer.lower():
-        print()
-        print("M-W's word of the day is " + word)
-        print()        
+def endgame(turns, word):
+    if turns == 0:
+        print ("say uncle if you would like to see the word")
+        answer=input()
+        if "uncle" in answer.lower():
+            print()
+            print("M-W's Word of the Day is: " + word)
+            print()        
 
 def main():
     word = getword()
     intro_to_game()
-    play(word)
-    endgame(word)
+    turns = play(word)
+    endgame(turns,word)
     
 main()
