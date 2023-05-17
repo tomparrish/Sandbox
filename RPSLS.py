@@ -10,8 +10,35 @@ end_of_game="_"*40
 wins=0
 losses=0
 draws=0
-legal_action=["rock","paper","scissors", "lizard", "Spock"]
+legal_action=["rock","paper","scissors", "lizard", "spock"]
 
+# array to hold the rules of the game
+rules = [
+    ["scissors", "cuts", "paper"],
+    ["paper", "covers", "rock"],
+    ["rock", "crushes", "lizard"],
+    ["lizard", "poisons", "spock"],
+    ["spock", "smashes", "scissors"],
+    ["scissors", "decapitates", "lizard"],
+    ["lizard", "eats", "paper"],
+    ["paper", "disproves", "spock"],
+    ["spock", "vaporizes", "rock"],
+    ["rock", "crushes", "scissors"]]
+
+# check the rules and determine who wins the round
+def determineWinner(ua, ca):
+    global wins, losses, draws
+    if ua == ca:
+        print ("\nIt's a draw.\n")
+        draws += 1
+    for i in rules:
+        if i[0] == ua and i[2] == ca:
+            print("\nYou win!", i[0], i[1], i[2],"\n")
+            wins += 1
+        elif i[0] == ca and i[2] == ua:
+            print("You lose!", i[0], i[1], i[2], "\n") 
+            losses += 1
+    
 # print current score
 def printScore():
     print (("Current Score: " + str(wins) + "W / " + str(losses) + "L / " + str(draws) + "D\n{}\n").format(end_of_game))
@@ -25,7 +52,7 @@ def thinking():
 
 # main logic (should we add an option to quit?)
 while True:
-    user_action=input("Select your action (rock, paper, scissors, lizard, Spock): ")
+    user_action=input("Select your action (rock, paper, scissors, lizard, spock): ")
     if user_action not in legal_action:
         print ("That is not a valid choice")
         continue
@@ -33,55 +60,7 @@ while True:
     # computer selects action
     computer_action=random.choice(legal_action)
     thinking()
-    print (('\nComputer picked {}.').format(computer_action))
+    print (('\nComputer picked {}.\n').format(computer_action))
 
-    # which action wins (this can be shortened)
-    if user_action == computer_action:
-        thinking()
-        draws += 1
-        print ("\nIt's a draw.\n")
-    elif user_action == "rock" and computer_action == "scissors":
-        thinking()
-        wins += 1
-        print (("\nYou win.  Rock crushes scissors.\n"))
-    elif user_action == "paper" and computer_action == "rock":
-        thinking()
-        wins += 1
-        print ("\nYou win.  Paper covers rock.\n")
-    elif user_action == "scissors" and computer_action == "paper":
-        thinking()
-        wins += 1
-        print ("\nYou win.  Scissors cuts paper.\n")
-    elif user_action == "rock" and computer_action == "lizard":
-        thinking()
-        wins += 1
-        print ("\nYou win.  Rock crushes lizard.\n")
-    elif user_action == "lizard" and computer_action == "Spock":
-        thinking()
-        wins += 1
-        print ("\nYou win.  Lizard poisons Spock.\n")
-    elif user_action == "Spock" and computer_action == "scissors":
-        thinking()
-        wins += 1
-        print ("\nYou win.  Spock smashes scissors.\n")
-    elif user_action == "scissors" and computer_action == "lizard":
-        thinking()
-        wins += 1
-        print ("\nYou win.  Scissors decapitate Lizard.\n")
-    elif user_action == "lizard" and computer_action == "paper":
-        thinking()
-        wins += 1
-        print ("\nYou win.  Lizard eats paper.\n")
-    elif user_action == "paper" and computer_action == "Spock":
-        thinking()
-        wins += 1
-        print ("\nYou win.  Paper disproves Spock.\n")
-    elif user_action == "Spock" and computer_action == "rock":
-        thinking()
-        wins += 1
-        print ("\nYou win.  Spock vaporizes Rock.\n")
-    else:
-        thinking()
-        losses += 1
-        print (("\nYou lose. {} loses to {}\n").format(user_action, computer_action))
+    determineWinner(user_action, computer_action)
     printScore()
