@@ -52,6 +52,7 @@ def main():
     while True:
         # ask user for input (how about we make this case insensitive or offer shortcuts?)
         user_action=input("Select your action (rock, paper, scissors, lizard, spock): ")
+        user_action = user_action.lower()
         if user_action not in legal_action:
             print ("That is not a valid choice")
             continue
