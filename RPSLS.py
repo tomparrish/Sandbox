@@ -83,7 +83,6 @@ def main():
     while True:
         user_action = useraction()
         computer_action = computeraction()
-        print(computer_action)
         determineWinner(user_action, computer_action, record)
         printScore(record)
     
