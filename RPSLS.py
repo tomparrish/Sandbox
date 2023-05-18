@@ -17,6 +17,7 @@ rules = [
     ["paper", ["disproves", "gives a nasty papercut to", "analyzes"], "spock"],
     ["spock", ["vaporizes", "decimates", "pulverizes"], "rock"],
     ["rock", ["crushes", "bend", "ruin"], "scissors"]]
+legal_action=["rock","paper","scissors", "lizard", "spock"]
 
 # check the rules and determine who wins the round
 def determineWinner(ua, ca, record):
@@ -44,18 +45,33 @@ def thinking():
         for cursor in '\\|/- ':
             time.sleep(0.1)
             print(f"\r{cursor}", end="", flush=True)
+   
+# ask user for input
+def useraction():
+        user_action=input("Select your action ([r]ock, [p]aper, [s]cissors, [l]izard, spoc[k]): ")
+        user_action = user_action.lower()
+        match user_action:
+            case "r":
+                user_action = "rock"
+            case "p":
+                user_action = "paper"
+            case "s":
+                user_action = "scissors"
+            case "l":
+                user_action = "lizard"
+            case "k":
+                user_action = "spock"
+        if user_action not in legal_action:
+            print ("That is not a valid choice")
+#            continue
+        return(user_action)
 
 # main logic (should we add an option to quit?)
 def main():
     record = [0, 0, 0] # wins, losses, draws
-    legal_action=["rock","paper","scissors", "lizard", "spock"]
+
     while True:
-        # ask user for input (how about we make this case insensitive or offer shortcuts?)
-        user_action=input("Select your action (rock, paper, scissors, lizard, spock): ")
-        user_action = user_action.lower()
-        if user_action not in legal_action:
-            print ("That is not a valid choice")
-            continue
+        user_action = useraction()
         
         # computer selects action
         computer_action=random.choice(legal_action)
