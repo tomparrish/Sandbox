@@ -16,7 +16,7 @@ legal_action=["rock","paper","scissors", "lizard", "spock"]
 rules = [
     ["scissors", ["cuts", "snips", "notches"], "paper"],
     ["paper", ["covers", "wraps", "veils"], "rock"],
-    ["rock", ["crushes" "chokes", "kablooeys"], "lizard"],
+    ["rock", ["crushes", "chokes", "kablooeys"], "lizard"],
     ["lizard", ["poisons", "bites", "claws"], "spock"],
     ["spock", ["smashes", "destroys", "wallops"], "scissors"],
     ["scissors", ["decapitates", "stabs", "cuts the head off of"], "lizard"],
@@ -30,11 +30,11 @@ def determineWinner(ua, ca):
     global wins, losses, draws
     salt = random.randint(0,2)
     if ua == ca:
-        print ("\nIt's a draw.\n")
+        print ("It's a draw.\n")
         draws += 1
     for i in rules:
         if i[0] == ua and i[2] == ca:
-            print("\nYou win!", i[0], i[1][salt], i[2],"\n")
+            print("You win!", i[0], i[1][salt], i[2],"\n")
             wins += 1
         elif i[0] == ca and i[2] == ua:
             print("You lose!", i[0], i[1][salt], i[2], "\n") 
