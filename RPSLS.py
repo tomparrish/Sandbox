@@ -5,13 +5,6 @@ import time
 from time import sleep
 import random
 
-# global variables
-end_of_game="_"*40
-wins=0
-losses=0
-draws=0
-legal_action=["rock","paper","scissors", "lizard", "spock"]
-
 # array to hold the rules of the game
 rules = [
     ["scissors", ["cuts", "snips", "notches"], "paper"],
@@ -26,23 +19,24 @@ rules = [
     ["rock", ["crushes", "bend", "ruin"], "scissors"]]
 
 # check the rules and determine who wins the round
-def determineWinner(ua, ca):
-    global wins, losses, draws
+def determineWinner(ua, ca, record):
     salt = random.randint(0,2)
     if ua == ca:
         print ("It's a draw.\n")
-        draws += 1
+        record[2] += 1
     for i in rules:
         if i[0] == ua and i[2] == ca:
             print("You win!", i[0], i[1][salt], i[2],"\n")
-            wins += 1
+            record[0] += 1
         elif i[0] == ca and i[2] == ua:
             print("You lose!", i[0], i[1][salt], i[2], "\n") 
-            losses += 1
+            record[1] += 1
+    return (record)
     
 # print current score
-def printScore():
-    print (("Current Score: " + str(wins) + "W / " + str(losses) + "L / " + str(draws) + "D\n{}\n").format(end_of_game))
+def printScore(record):
+    end_of_game="_"*40
+    print (("Current Score: " + str(record[0]) + "W / " + str(record[1]) + "L / " + str(record[2]) + "D\n{}\n").format(end_of_game))
 
 # give the computer time to think
 def thinking():
@@ -53,6 +47,8 @@ def thinking():
 
 # main logic (should we add an option to quit?)
 def main():
+    record = [0, 0, 0] # wins, losses, draws
+    legal_action=["rock","paper","scissors", "lizard", "spock"]
     while True:
         # ask user for input (how about we make this case insensitive or offer shortcuts?)
         user_action=input("Select your action (rock, paper, scissors, lizard, spock): ")
@@ -65,7 +61,7 @@ def main():
         thinking()
         print (('\nComputer picked {}.\n').format(computer_action))
 
-        determineWinner(user_action, computer_action)
-        printScore()
+        determineWinner(user_action, computer_action, record)
+        printScore(record)
     
 main()
