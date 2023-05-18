@@ -28,7 +28,7 @@ rules = [
 # check the rules and determine who wins the round
 def determineWinner(ua, ca):
     global wins, losses, draws
-    salt = random.randint(1,3)
+    salt = random.randint(0,2)
     if ua == ca:
         print ("\nIt's a draw.\n")
         draws += 1
