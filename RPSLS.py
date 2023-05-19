@@ -5,6 +5,7 @@ import time
 from time import sleep
 import random
 
+# constants go here
 # array to hold the rules of the game
 rules = [
     ["scissors", ["cuts", "snips", "notches"], "paper"],
@@ -48,6 +49,8 @@ def thinking():
    
 # ask user for input
 def useraction():
+    done = 0
+    while done == 0:
         user_action=input("Select your action ([r]ock, [p]aper, [s]cissors, [l]izard, spoc[k]): ")
         user_action = user_action.lower()
         match user_action:
@@ -63,21 +66,23 @@ def useraction():
                 user_action = "spock"
         if user_action not in legal_action:
             print ("That is not a valid choice")
-#            continue
+            continue
+        done = 1
         return(user_action)
+        
+#what is the computers action?
+def computeraction():
+        computer_action=random.choice(legal_action)
+        thinking()
+        print (('\nComputer picked {}.\n').format(computer_action))
+        return(computer_action)
 
 # main logic (should we add an option to quit?)
 def main():
     record = [0, 0, 0] # wins, losses, draws
-
     while True:
         user_action = useraction()
-        
-        # computer selects action
-        computer_action=random.choice(legal_action)
-        thinking()
-        print (('\nComputer picked {}.\n').format(computer_action))
-
+        computer_action = computeraction()
         determineWinner(user_action, computer_action, record)
         printScore(record)
     
