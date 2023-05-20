@@ -19,6 +19,7 @@ rules = [
     ["spock", ["vaporizes", "decimates", "pulverizes"], "rock"],
     ["rock", ["crushes", "bend", "ruin"], "scissors"]]
 legal_action=["rock","paper","scissors", "lizard", "spock"]
+legal_personality=["chatgpt", "sheldon", "therock"]
 
 # check the rules and determine who wins the round
 def determineWinner(ua, ca, record):
@@ -71,18 +72,46 @@ def useraction():
         return(user_action)
         
 #what is the computers action?
-def computeraction():
-        computer_action=random.choice(legal_action)
+def computeraction(personality):
+#        personality = "sheldon"
+        match personality:
+            case "chatgpt":
+                computer_action=random.choice(legal_action)
+            case "sheldon":
+                computer_action="spock"
+            case "therock":
+                therock_actions=["rock", "scissors", "lizard"]
+                computer_action=random.choice(therock_actions)
+                computer_action
         thinking()
-        print (('\nComputer picked {}.\n').format(computer_action))
+        print (('\n'+personality+' picked {}.\n').format(computer_action))
         return(computer_action)
+        
+def choosepersonality():
+    done = 0
+    while done == 0:
+        personality=input("choose your opponent ([C]hatGPT, [S]heldon, [T]he Rock): ")
+        personality = personality.lower()
+        match personality:
+            case "c":
+                personality = "chatgpt"
+            case "s":
+                personality = "sheldon"
+            case "t":
+                personality = "therock"
+        if personality not in legal_personality:
+            print ("That is not a valid choice")
+            continue
+        done = 1
+        return(personality)    
 
 # main logic (should we add an option to quit?)
 def main():
     record = [0, 0, 0] # wins, losses, draws
+    personality = choosepersonality()
     while True:
         user_action = useraction()
-        computer_action = computeraction()
+        computer_action = computeraction(personality)
         determineWinner(user_action, computer_action, record)
         printScore(record)
     
