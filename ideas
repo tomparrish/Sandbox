@@ -12,3 +12,7 @@ Martian Weather
   Get user's current longitude and latitude on Earth.
   API call for Martian weather at that long/lat.  Return that to user.
   Bonus:  Tell user how close they are to major martian landmarks
+
+Monty Hall Problem
+  Because sometimes you convince yourself that it doesn't work the way it actually does
+  Solves the Monty Hall problem x number of times for y number of doors
