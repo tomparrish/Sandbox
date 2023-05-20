@@ -1,0 +1,14 @@
+Rewrite hangman.py with javascript and publish it somewhere.
+  I think it's fun.  I bet it could get tens of views daily.
+
+Vancouver, WA weather site
+  Weather sites load slowly.  Cookies remember the wrong site.  News/weather sites are way too busy looking.  local weather site fixes all of that.
+  Use python and flask/django to send barebones html showing hourly forecast for the current day only.
+  Api calls to either free or paid weather api for an update once an hour.
+  Might need to allow for neighborhood forecasts based on how big forecast cells are
+  
+Martian Weather
+  Probably too complex for me.  lol
+  Get user's current longitude and latitude on Earth.
+  API call for Martian weather at that long/lat.  Return that to user.
+  Bonus:  Tell user how close they are to major martian landmarks
