@@ -43,7 +43,7 @@ def printScore(record):
 
 # give the computer time to think
 def thinking():
-    for i in range(1,5):
+    for i in range(1,4):
         for cursor in '\\|/- ':
             time.sleep(0.1)
             print(f"\r{cursor}", end="", flush=True)
@@ -68,7 +68,6 @@ def useraction():
         if user_action not in legal_action:
             print ("That is not a valid choice")
             continue
-        done = 1
         return(user_action)
         
 #what is the computers action?
@@ -84,7 +83,8 @@ def computeraction(personality):
                 computer_action=random.choice(therock_actions)
                 computer_action
         thinking()
-        print (('\n'+personality+' picked {}.\n').format(computer_action))
+        print("!!!")
+        print ((personality+' picked {}.\n').format(computer_action))
         return(computer_action)
         
 def choosepersonality():
@@ -102,7 +102,6 @@ def choosepersonality():
         if personality not in legal_personality:
             print ("That is not a valid choice")
             continue
-        done = 1
         return(personality)    
 
 # main logic (should we add an option to quit?)
