@@ -16,3 +16,8 @@ Martian Weather
 Monty Hall Problem
   Because sometimes you convince yourself that it doesn't work the way it actually does
   Solves the Monty Hall problem x number of times for y number of doors
+
+Sandbox website
+  How about an unbrella website with a homepage that lists a bunch of simple games.
+  Click on an icon, and play one of the games, e.g., hangman, RPSLS. 
+  Bonus: Show how many users are playing what games, currently. I have code we can steal.
