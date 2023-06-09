@@ -1,0 +1,10 @@
+# This file gives a general overview of using the API calls.
+# Include details here on adding the API key to local environment
+
+#import modules and initialize Variables
+
+#function to do anysort of dumb thing
+#https://api.sportmonks.com/v3/core/countries?api_token={{api_token}}&include=leagues;
+#print result to show that it's working
+
+#main() to call function
